@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Container, Box } from "@mui/material";
 import "./App.css";
 import Results from "./components/Results";
@@ -7,19 +7,21 @@ import axios from "axios";
 
 function App() {
   const [query, setQuery] = useState("");
-  // useEffect(() => {
-  //   const displayResults = async () => {
-  //     try {
-  //       const resp = await axios.get(
-  //         "https://www.googleapis.com/books/v1/volumes?q=jeff"
-  //       );
-  //       console.log(resp.data.items);
-  //     } catch (error) {
-  //       console.log("Couldn't find that query");
-  //     }
-  //   };
-  //   displayResults();
-  // }, []);
+
+  const displayResults = async () => {
+    if (query) {
+      try {
+        const resp = await axios.get(
+          `https://www.googleapis.com/books/v1/volumes?q=${query}`
+        );
+        console.log(resp.data.items);
+      } catch (error) {
+        console.log("Couldn't find that query");
+      }
+    } else {
+      console.log("Enter query");
+    }
+  };
 
   return (
     <Container
@@ -35,7 +37,11 @@ function App() {
       }}
     >
       <Box>
-        <Search query={query} setQuery={setQuery} />
+        <Search
+          query={query}
+          setQuery={setQuery}
+          displayResults={displayResults}
+        />
       </Box>
       <Box>
         <Results />

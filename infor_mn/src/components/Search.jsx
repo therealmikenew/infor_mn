@@ -1,6 +1,6 @@
 import { TextField, Button, Box } from "@mui/material"
 
-const Search = ({query, setQuery}) => {
+const Search = ({query, setQuery, displayResults}) => {
     return (
     <Box >
       <TextField 
@@ -12,7 +12,8 @@ const Search = ({query, setQuery}) => {
         value={query}
         onChange={(e)=> setQuery(e.target.value) }
       />
-      <Button variant="contained">Search</Button>
+      <Button onClick={displayResults}
+      variant="contained">Search</Button>
 
     </Box>
     )
