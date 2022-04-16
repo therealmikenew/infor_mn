@@ -1,7 +1,6 @@
 import { Card, CardMedia, Typography, List, ListItem } from "@mui/material";
 
 const BookCard = ({ res }) => {
-  console.log(res);
   return (
     <Card sx={{ height: 200 }}>
       <CardMedia

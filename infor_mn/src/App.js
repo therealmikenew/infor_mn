@@ -10,12 +10,18 @@ function App() {
   const [results, setResults] = useState([]);
 
   const displayResults = async () => {
+    const cachedResult = JSON.parse(localStorage.getItem(query));
+    console.log("cachedResult is", cachedResult);
+
     if (query) {
       try {
         const resp = await axios.get(
           `https://www.googleapis.com/books/v1/volumes?q=${query}`
         );
         setResults(resp.data.items);
+        localStorage.setItem(query, JSON.stringify(resp));
+        // to clear cache
+        // localStorage.clear();
       } catch (error) {
         console.log("Couldn't find that query");
       }
