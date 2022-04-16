@@ -7,6 +7,7 @@ import axios from "axios";
 
 function App() {
   const [query, setQuery] = useState("");
+  const [results, setResults] = useState([]);
 
   const displayResults = async () => {
     if (query) {
@@ -14,7 +15,7 @@ function App() {
         const resp = await axios.get(
           `https://www.googleapis.com/books/v1/volumes?q=${query}`
         );
-        console.log(resp.data.items);
+        setResults(resp.data.items);
       } catch (error) {
         console.log("Couldn't find that query");
       }
@@ -44,7 +45,7 @@ function App() {
         />
       </Box>
       <Box>
-        <Results />
+        <Results results={results} />
       </Box>
     </Container>
   );
