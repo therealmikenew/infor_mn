@@ -11,10 +11,9 @@ function App() {
 
   const displayResults = async () => {
     const cachedResult = JSON.parse(localStorage.getItem(query));
-    console.log("cachedResult is", cachedResult);
 
     if (cachedResult) {
-      setResults(cachedResult);
+      setResults(cachedResult.data.items);
     } else {
       if (query) {
         try {
