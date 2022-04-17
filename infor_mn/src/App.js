@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Container, Box } from "@mui/material";
 import "./App.css";
-import Results from "./components/Results";
+//import Results from "./components/Results";
 import Search from "./components/Search";
+import Pages from "./components/Pages";
+import BookTable from "./components/BookTable";
 import axios from "axios";
 
 function App() {
@@ -18,12 +20,13 @@ function App() {
       if (query) {
         try {
           const resp = await axios.get(
-            `https://www.googleapis.com/books/v1/volumes?q=${query}`
+            `https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=5`
           );
           setResults(resp.data.items);
-          localStorage.setItem(query, JSON.stringify(resp));
+          //localStorage.setItem(query, JSON.stringify(resp));
           // to clear cache
-          // localStorage.clear();
+          localStorage.clear();
+          console.log(results);
         } catch (error) {
           console.log("Couldn't find that query");
         }
@@ -54,8 +57,12 @@ function App() {
         />
       </Box>
       <Box>
-        <Results results={results} />
+        <BookTable results={results} />
       </Box>
+      {/* <Box>
+        <Results results={results} />
+      </Box> */}
+      <Pages />
     </Container>
   );
 }
