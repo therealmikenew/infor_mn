@@ -2,7 +2,6 @@ import { DataGrid } from "@mui/x-data-grid"
 import {useNavigate} from "react-router-dom"
 
 const BookGrid = ({results}) => {
-  console.log(results)
   let navigate = useNavigate()
   
     const columns = [
