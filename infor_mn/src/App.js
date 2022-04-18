@@ -3,8 +3,9 @@ import { Container, Box } from "@mui/material";
 import "./App.css";
 //import Results from "./components/Results";
 import Search from "./components/Search";
-import Pages from "./components/Pages";
-import BookTable from "./components/BookTable";
+//import Pages from "./components/Pages";
+//import BookTable from "./components/BookTable";
+import BookGrid from "./components/BookGrid";
 import axios from "axios";
 
 function App() {
@@ -23,10 +24,9 @@ function App() {
             `https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=5`
           );
           setResults(resp.data.items);
-          //localStorage.setItem(query, JSON.stringify(resp));
+          localStorage.setItem(query, JSON.stringify(resp));
           // to clear cache
-          localStorage.clear();
-          console.log(results);
+          //localStorage.clear();
         } catch (error) {
           console.log("Couldn't find that query");
         }
@@ -57,12 +57,15 @@ function App() {
         />
       </Box>
       <Box>
-        <BookTable results={results} />
+        <BookGrid results={results} />
       </Box>
+      {/* <Box>
+        <BookTable results={results} />
+      </Box> */}
       {/* <Box>
         <Results results={results} />
       </Box> */}
-      <Pages />
+      {/* <Pages /> */}
     </Container>
   );
 }
