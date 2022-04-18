@@ -1,6 +1,8 @@
 import { Card, CardMedia, Typography, List, ListItem } from "@mui/material";
 
-const BookCard = ({ res }) => {
+const BookCard = (props) => {
+  console.log(localStorage.sedaris)
+  
   return (
     <Card sx={{ height: 200 }}>
       <Typography>BookCard</Typography>

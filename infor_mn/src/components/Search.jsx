@@ -4,12 +4,10 @@ const Search = ({query, setQuery, displayResults}) => {
     return (
     <Box >
       <TextField 
-
         id="filled-search"
         label="Search..."
         type="search"
         variant="filled"
-        value={query}
         onChange={(e)=> setQuery(e.target.value) }
       />
       <Button onClick={displayResults}

@@ -1,6 +1,8 @@
 import { DataGrid } from "@mui/x-data-grid"
+import {useNavigate} from "react-router-dom"
 
 const BookGrid = ({results}) => {
+  let navigate = useNavigate()
   
     const columns = [
         {
@@ -38,8 +40,8 @@ const BookGrid = ({results}) => {
           { id: idx, title: res.volumeInfo.title, authors: res.volumeInfo.authors, retail_price: res.saleInfo.saleability === "FOR_SALE" ? (res.saleInfo.retailPrice.amount): ("No price listed"), page_count: res.volumeInfo.pageCount, categories: res.volumeInfo.categories }
       ))
 
-      const handleClick = () => {
-          console.log('clicked')
+      const handleClick = (e) => {
+        navigate(`/${e.id}`)
       }
 
 
@@ -48,7 +50,7 @@ const BookGrid = ({results}) => {
             <DataGrid
             columns={columns}
             rows={rows}
-            onRowClick={handleClick}
+            onRowClick={(e)=>(handleClick(e))}
             pageSize={5}
         rowsPerPageOptions={[5]}
         // checkboxSelection

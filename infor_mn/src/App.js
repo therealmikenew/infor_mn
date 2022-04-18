@@ -1,10 +1,7 @@
 import { useState } from "react";
 import { Container, Box } from "@mui/material";
 import "./App.css";
-//import Results from "./components/Results";
 import Search from "./components/Search";
-//import Pages from "./components/Pages";
-//import BookTable from "./components/BookTable";
 import BookGrid from "./components/BookGrid";
 import axios from "axios";
 
@@ -13,6 +10,7 @@ function App() {
   const [results, setResults] = useState([]);
 
   const displayResults = async () => {
+    setQuery(query.replaceAll(" ", "%20"));
     const cachedResult = JSON.parse(localStorage.getItem(query));
 
     if (cachedResult) {
@@ -59,13 +57,6 @@ function App() {
       <Box>
         <BookGrid results={results} />
       </Box>
-      {/* <Box>
-        <BookTable results={results} />
-      </Box> */}
-      {/* <Box>
-        <Results results={results} />
-      </Box> */}
-      {/* <Pages /> */}
     </Container>
   );
 }

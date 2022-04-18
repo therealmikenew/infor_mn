@@ -8,12 +8,17 @@ import { render } from "react-router-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}></Route>
-        <Route path=":book_cardId" element={<BookCard />} />
+        <Route
+          path=":book_cardId"
+          render={(props) => <BookCard {...props} authed={true} />}
+          element={<BookCard />}
+        />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
