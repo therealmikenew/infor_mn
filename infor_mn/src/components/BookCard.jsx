@@ -3,7 +3,8 @@ import { Card, CardMedia, Typography, List, ListItem } from "@mui/material";
 const BookCard = ({ res }) => {
   return (
     <Card sx={{ height: 200 }}>
-      <CardMedia
+      <Typography>BookCard</Typography>
+      {/* <CardMedia
         component="img"
         height="50"
         image={res.volumeInfo.imageLinks.smallThumbnail}
@@ -22,7 +23,7 @@ const BookCard = ({ res }) => {
           <ListItem key={idx}>{author}</ListItem>
         ))}
       </List>
-      <Typography>{res.volumeInfo.pageCount}</Typography>
+      <Typography>{res.volumeInfo.pageCount}</Typography> */}
     </Card>
   );
 };

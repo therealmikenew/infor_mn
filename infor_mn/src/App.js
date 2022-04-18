@@ -21,7 +21,7 @@ function App() {
       if (query) {
         try {
           const resp = await axios.get(
-            `https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=5`
+            `https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=40`
           );
           setResults(resp.data.items);
           localStorage.setItem(query, JSON.stringify(resp));
