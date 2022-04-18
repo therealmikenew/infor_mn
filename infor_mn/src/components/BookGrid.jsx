@@ -2,13 +2,14 @@ import { DataGrid } from "@mui/x-data-grid"
 import {useNavigate} from "react-router-dom"
 
 const BookGrid = ({results}) => {
+  console.log(results)
   let navigate = useNavigate()
   
     const columns = [
         {
           field: 'title',
           headerName: 'Title',
-          width: 150,
+          width: 350,
         },
         {
           field: 'authors',
@@ -28,11 +29,10 @@ const BookGrid = ({results}) => {
           width: 110,   
         },
         {
-            field: 'categories',
-            headerName: 'Categories',
-            width: 150,  
-          },
-      
+          field: 'categories',
+          headerName: 'Categories',
+          width: 150,  
+        },
       ];
 
 
@@ -46,15 +46,24 @@ const BookGrid = ({results}) => {
 
 
     return (
-        <div style={{ width: 700, height: 500 }}>
+        <div style={{ width: 900, height: 400 }}>
+
+        
             <DataGrid
             columns={columns}
             rows={rows}
             onRowClick={(e)=>(handleClick(e))}
             pageSize={5}
         rowsPerPageOptions={[5]}
-        // checkboxSelection
+        
         disableSelectionOnClick/>
+
+
+          
+
+
+
+           
         </div>
     )
 

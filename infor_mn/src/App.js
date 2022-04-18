@@ -7,7 +7,7 @@ import axios from "axios";
 
 function App() {
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState([]);
+  const [results, setResults] = useState("");
 
   const displayResults = async () => {
     setQuery(query.replaceAll(" ", "%20"));
@@ -39,8 +39,6 @@ function App() {
       className="App"
       maxWidth="lg"
       sx={{
-        bgcolor: "#cfe8fc",
-        height: "50vh",
         marginY: 5,
         display: "grid",
         alignItems: "center",
@@ -54,9 +52,7 @@ function App() {
           displayResults={displayResults}
         />
       </Box>
-      <Box>
-        <BookGrid results={results} />
-      </Box>
+      {results ? <BookGrid results={results} /> : null}
     </Container>
   );
 }
