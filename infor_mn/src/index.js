@@ -4,7 +4,6 @@ import "./index.css";
 import App from "./App";
 import BookCard from "./components/BookCard";
 import reportWebVitals from "./reportWebVitals";
-import { render } from "react-router-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -14,11 +13,7 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}></Route>
-        <Route
-          path=":book_cardId"
-          render={(props) => <BookCard {...props} authed={true} />}
-          element={<BookCard />}
-        />
+        <Route path=":book_cardId" element={<BookCard />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

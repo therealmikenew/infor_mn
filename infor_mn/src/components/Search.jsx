@@ -4,7 +4,6 @@ const Search = ({query, setQuery, displayResults}) => {
     return (
     <Box padding={10}>
       <TextField 
-        
         id="filled-search"
         label="Search..."
         type="search"

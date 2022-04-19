@@ -23,8 +23,6 @@ function App() {
           );
           setResults(resp.data.items);
           localStorage.setItem(query, JSON.stringify(resp));
-          // to clear cache
-          //localStorage.clear();
         } catch (error) {
           console.log("Couldn't find that query");
         }
