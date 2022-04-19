@@ -10,7 +10,7 @@
 
 # Getting Started
 
-`cd` into infor_mn/infor_mn, and run `npm start`. The app will run in development mode.\
+Clone repository and `cd` into infor_mn. Run `npm start` and the app will run in development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 ### **_Technologies Used_**
